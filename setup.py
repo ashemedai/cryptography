@@ -43,10 +43,10 @@ requirements = [
     "enum34 ; python_version < '3.4'",
     "ipaddress ; python_version < '3.3'",
 
-    "cffi>=1.4.1 ; platform_python_implementation  != 'PyPy'",
+    "cffi>=1.4.1 ; platform_python_implementation != 'PyPy'",
 ]
 setup_requirements = [
-    "cffi>=1.4.1 ; platform_python_implementation  != 'PyPy'",
+    "cffi>=1.4.1 ; platform_python_implementation != 'PyPy'",
 ]
 
 if platform.python_implementation() == "PyPy":
