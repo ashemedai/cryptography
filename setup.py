@@ -38,10 +38,10 @@ requirements = [
     "asn1crypto>=0.21.0",
     "packaging",
     "six>=1.4.1",
-    "setuptools>=11.3",
+    "setuptools>=20.5",
 
-    "enum34 ; python_version < '3.4'",
     "ipaddress ; python_version < '3.3'",
+    "enum34 ; python_version < '3.4'",
 
     "cffi>=1.4.1 ; platform_python_implementation != 'PyPy'",
 ]
