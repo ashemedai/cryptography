@@ -36,9 +36,7 @@ VECTORS_DEPENDENCY = "cryptography_vectors=={0}".format(about['__version__'])
 requirements = [
     "idna>=2.1",
     "asn1crypto>=0.21.0",
-    "packaging",
     "six>=1.4.1",
-    "setuptools>=20.5",
 
     "ipaddress ; python_version < '3.3'",
     "enum34 ; python_version < '3.4'",
@@ -71,19 +69,9 @@ if not os.path.exists(os.path.join(base_dir, "vectors/setup.py")):
     test_requirements.append(VECTORS_DEPENDENCY)
 
 
-def cc_is_available():
-    return sys.platform == "darwin" and list(map(
-        int, platform.mac_ver()[0].split("."))) >= [10, 8, 0]
-
-
 backends = [
     "openssl = cryptography.hazmat.backends.openssl:backend"
 ]
-
-if cc_is_available():
-    backends.append(
-        "commoncrypto = cryptography.hazmat.backends.commoncrypto:backend",
-    )
 
 
 class PyTest(test):
@@ -210,8 +198,6 @@ def keywords_with_side_effects(argv):
             "src/_cffi_src/build_constant_time.py:ffi",
             "src/_cffi_src/build_padding.py:ffi",
         ]
-        if cc_is_available():
-            cffi_modules.append("src/_cffi_src/build_commoncrypto.py:ffi")
 
         return {
             "setup_requires": setup_requirements,
@@ -312,7 +298,7 @@ setup(
             "doc8",
             "pyenchant",
             "readme_renderer >= 16.0",
-            "sphinx",
+            "sphinx != 1.6.1",
             "sphinx_rtd_theme",
             "sphinxcontrib-spelling",
         ],
