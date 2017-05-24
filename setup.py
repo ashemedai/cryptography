@@ -41,16 +41,16 @@ requirements = [
     "ipaddress ; python_version < '3.3'",
     "enum34 ; python_version < '3.4'",
 
-    "cffi>=1.4.1 ; platform_python_implementation != 'PyPy'",
+    "cffi>=1.7 ; platform_python_implementation != 'PyPy'",
 ]
 setup_requirements = [
-    "cffi>=1.4.1 ; platform_python_implementation != 'PyPy'",
+    "cffi>=1.7 ; platform_python_implementation != 'PyPy'",
 ]
 
 if platform.python_implementation() == "PyPy":
-    if sys.pypy_version_info < (2, 6):
+    if sys.pypy_version_info < (5, 3):
         raise RuntimeError(
-            "cryptography 1.0 is not compatible with PyPy < 2.6. Please "
+            "cryptography 1.9 is not compatible with PyPy < 5.3. Please "
             "upgrade PyPy to use this library."
         )
 
